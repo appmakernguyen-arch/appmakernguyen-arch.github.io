@@ -1,0 +1,155 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>VietLish · Delete your account</title>
+<meta name="description" content="VietLish by rubezapps: delete your account.">
+<link rel="canonical" href="https://appmakernguyen-arch.github.io/delete-account.html">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700;800&display=swap">
+<style>
+/* Layout: a quiet policy reader. Sticky top bar with page tabs + language switch, one readable column. */
+:root{
+  --bg:#f3f8f4; --surface:#ffffff; --ink:#183e32; --muted:#55705f; --line:#d9e8de; --accent:#17684f; --accent-soft:#e3f2e8; --warn:#8a5a00; --warn-soft:#fff4d6;
+  --body:"Be Vietnam Pro",system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0f1c17;--surface:#152820;--ink:#e6f3ea;--muted:#a8c3b3;--line:#24402f;--accent:#5fd3a2;--accent-soft:#183a2b;--warn:#ffd27a;--warn-soft:#3a2d10;color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#0f1c17;--surface:#152820;--ink:#e6f3ea;--muted:#a8c3b3;--line:#24402f;--accent:#5fd3a2;--accent-soft:#183a2b;--warn:#ffd27a;--warn-soft:#3a2d10;color-scheme:dark}
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--ink);font-family:var(--body);font-size:16px;line-height:1.65;margin:0}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:10;background:var(--surface)}
+.top{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:var(--surface);border-bottom:1px solid var(--line)}
+.top-in{max-width:880px;margin:0 auto;padding-block:12px;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));display:flex;flex-wrap:wrap;gap:10px 16px;align-items:center}
+.brand{display:flex;align-items:center;gap:10px;font-weight:800;font-size:20px;letter-spacing:-.4px;text-decoration:none;color:var(--ink)}
+.mark{width:34px;height:34px;border-radius:10px;background:var(--accent);display:grid;place-items:center}
+.mark svg{width:18px;height:18px}
+.brand i{font-style:normal;color:var(--accent)}
+nav{display:flex;flex-wrap:wrap;gap:6px;flex:1;min-width:0}
+nav a{font-size:14px;font-weight:600;color:var(--muted);text-decoration:none;padding:6px 12px;border-radius:999px}
+nav a[aria-current="page"]{background:var(--accent-soft);color:var(--accent)}
+nav a:focus-visible,.lang button:focus-visible,.copy:focus-visible{outline:3px solid var(--accent);outline-offset:2px}
+.lang{display:flex;border:1px solid var(--line);border-radius:999px;overflow:hidden}
+.lang button{font:inherit;font-size:13px;font-weight:700;border:0;background:transparent;color:var(--muted);padding:6px 12px;cursor:pointer}
+.lang button[aria-pressed="true"]{background:var(--accent);color:var(--surface)}
+main{max-width:880px;margin:0 auto;padding-block:32px 64px;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+article{background:var(--surface);border:1px solid var(--line);border-radius:20px;padding:clamp(20px,4vw,44px)}
+article>*{max-width:68ch}
+h1{font-size:clamp(28px,4vw,38px);line-height:1.15;letter-spacing:-.8px;margin:0 0 6px;text-wrap:balance}
+h2{font-size:21px;letter-spacing:-.3px;margin:34px 0 8px;text-wrap:balance}
+h3{font-size:17px;margin:22px 0 4px}
+p,li{color:var(--ink)}
+.meta{color:var(--muted);font-size:14px;margin:0 0 22px}
+ul{padding-left:22px}
+li{margin:4px 0}
+.note{background:var(--warn-soft);color:var(--warn);border-radius:12px;padding:12px 16px;font-size:15px}
+.box{background:var(--accent-soft);border-radius:14px;padding:14px 18px}
+.contact{display:flex;flex-wrap:wrap;align-items:center;gap:10px}
+.contact code{font-family:var(--body);font-weight:700;font-size:17px;color:var(--accent);user-select:all}
+.copy{font:inherit;font-size:13px;font-weight:700;border:1px solid var(--line);background:var(--surface);color:var(--ink);border-radius:999px;padding:4px 12px;cursor:pointer}
+.tbl{overflow-x:auto;margin:10px 0}
+table{border-collapse:collapse;width:100%;min-width:560px;font-size:14.5px}
+th,td{text-align:left;vertical-align:top;border-top:1px solid var(--line);padding:9px 10px}
+th{color:var(--muted);font-weight:700;font-size:12.5px;text-transform:uppercase;letter-spacing:.06em;border-top:0}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px;margin:18px 0 0}
+.card{display:block;border:1px solid var(--line);border-radius:16px;padding:16px 18px;text-decoration:none;color:var(--ink);background:var(--surface)}
+.card b{display:block;font-size:17px}
+.card span{color:var(--muted);font-size:14px}
+.card:hover{border-color:var(--accent)}
+footer{color:var(--muted);font-size:13px;text-align:center;margin-top:22px}
+[data-l="vi"]{display:none}
+html[lang="vi"] [data-l="en"]{display:none}
+html[lang="vi"] [data-l="vi"]{display:revert}
+.top-in{justify-content:space-between}.card b[data-l="vi"]{display:none}html[lang="vi"] .card b[data-l="en"]{display:none}html[lang="vi"] .card b[data-l="vi"]{display:block}
+nav{order:3;flex-basis:100%;overflow-x:auto;flex-wrap:nowrap;scrollbar-width:none}nav a{white-space:nowrap}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+</head>
+<body>
+<header class="top"><div class="top-in">
+  <a class="brand" href="legal.html"><span class="mark"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5.5v13l11-6.5z" fill="#fff"/></svg></span><span>Viet<i>Lish</i></span></a>
+  <nav aria-label="Pages">
+    <a href="legal.html"><span data-l="en">Overview</span><span data-l="vi">Tổng quan</span></a>
+    <a href="privacy.html"><span data-l="en">Privacy</span><span data-l="vi">Quyền riêng tư</span></a>
+    <a href="terms.html"><span data-l="en">Terms</span><span data-l="vi">Điều khoản</span></a>
+    <a href="children.html"><span data-l="en">Children</span><span data-l="vi">Trẻ em</span></a>
+    <a href="delete-account.html" aria-current="page"><span data-l="en">Delete account</span><span data-l="vi">Xóa tài khoản</span></a>
+    <a href="support.html"><span data-l="en">Support</span><span data-l="vi">Hỗ trợ</span></a>
+  </nav>
+  <div class="lang" role="group" aria-label="Language"><button id="b-en" type="button" data-set="en">EN</button><button id="b-vi" type="button" data-set="vi">VI</button></div>
+</div></header>
+<main>
+<article id="delete-account">
+<div data-l="en">
+  <h1>Delete your VietLish account</h1>
+  <p class="meta">VietLish by rubezapps</p>
+  <h2>In the app (fastest)</h2>
+  <ol>
+    <li>Open VietLish and go to <b>Profile</b>.</li>
+    <li>Tap <b>Delete account and cloud data</b>.</li>
+    <li>Sign in again if asked, type <b>DELETE</b> and confirm.</li>
+  </ol>
+  <h2>By email</h2>
+  <p>Send an email from the address linked to your account, with the subject <b>Delete my VietLish account</b>, to:</p>
+  <p class="contact"><code id="mail1">appmakernguyen@gmail.com</code><button class="copy" type="button" data-copy="mail1">Copy</button></p>
+  <p>We may ask you to confirm the request from that address. We delete the account within 30 days and email you when it is done.</p>
+  <h2>What is deleted</h2>
+  <ul>
+    <li>Your sign-in identity, learning profile and cloud progress.</li>
+    <li>Purchase verification records linked to the account.</li>
+  </ul>
+  <h2>What is not deleted automatically</h2>
+  <ul>
+    <li><b>Your subscription is not cancelled.</b> Cancel it in Google Play → Payments &amp; subscriptions, or in your Apple ID → Subscriptions.</li>
+    <li>Progress stored on your device, including Kids and Teens profiles. Remove it with Profile → Reset my progress or by deleting the app.</li>
+    <li>Records Google, Apple and our hosting provider keep under their own rules, such as payment records and short-term security logs.</li>
+  </ul>
+  <h2>Leave the waiting list</h2>
+  <p>Email us with the subject <b>Remove me from the waiting list</b> and we delete your sign-up.</p>
+</div>
+<div data-l="vi">
+  <h1>Xóa tài khoản VietLish</h1>
+  <p class="meta">VietLish của rubezapps</p>
+  <h2>Trong ứng dụng (nhanh nhất)</h2>
+  <ol>
+    <li>Mở VietLish và vào <b>Hồ sơ</b>.</li>
+    <li>Chọn <b>Xóa tài khoản và dữ liệu đám mây</b>.</li>
+    <li>Đăng nhập lại nếu được yêu cầu, gõ <b>DELETE</b> và xác nhận.</li>
+  </ol>
+  <h2>Qua email</h2>
+  <p>Gửi email từ địa chỉ gắn với tài khoản, tiêu đề <b>Xóa tài khoản VietLish</b>, tới:</p>
+  <p class="contact"><code id="mail2">appmakernguyen@gmail.com</code><button class="copy" type="button" data-copy="mail2">Sao chép</button></p>
+  <p>Chúng tôi có thể nhờ bạn xác nhận từ địa chỉ đó. Tài khoản được xóa trong vòng 30 ngày và chúng tôi sẽ email cho bạn khi hoàn tất.</p>
+  <h2>Dữ liệu bị xóa</h2>
+  <ul>
+    <li>Danh tính đăng nhập, hồ sơ học và tiến độ trên đám mây.</li>
+    <li>Hồ sơ xác minh giao dịch gắn với tài khoản.</li>
+  </ul>
+  <h2>Không tự động bị xóa</h2>
+  <ul>
+    <li><b>Gói đăng ký không bị hủy.</b> Hãy hủy trong Google Play → Thanh toán và gói thuê bao, hoặc Apple ID → Đăng ký.</li>
+    <li>Tiến độ trên thiết bị, kể cả hồ sơ Bé và Tuổi teen. Xóa bằng Hồ sơ → Xóa tiến độ hoặc gỡ ứng dụng.</li>
+    <li>Hồ sơ mà Google, Apple và nhà cung cấp máy chủ giữ theo quy định riêng, như hồ sơ thanh toán và nhật ký bảo mật ngắn hạn.</li>
+  </ul>
+  <h2>Rời danh sách chờ</h2>
+  <p>Gửi email với tiêu đề <b>Xóa tôi khỏi danh sách chờ</b> và chúng tôi sẽ xóa thông tin đăng ký của bạn.</p>
+</div>
+</article>
+<footer>© 2026 rubezapps · VietLish · appmakernguyen@gmail.com</footer>
+</main>
+<script>
+(function(){
+  function setLang(l){document.documentElement.lang=l;document.getElementById('b-en').setAttribute('aria-pressed',l==='en');document.getElementById('b-vi').setAttribute('aria-pressed',l==='vi');try{localStorage.setItem('vl-legal-lang',l);}catch(e){}}
+  var q=(location.search.match(/[?&]lang=(en|vi)/)||[])[1],saved=null;try{saved=localStorage.getItem('vl-legal-lang');}catch(e){}
+  setLang(q||saved||((navigator.language||'').toLowerCase().indexOf('vi')===0?'vi':'en'));
+  document.querySelectorAll('.lang button').forEach(function(b){b.addEventListener('click',function(){setLang(b.dataset.set);});});
+  document.querySelectorAll('.copy').forEach(function(b){b.addEventListener('click',function(){
+    var el=document.getElementById(b.dataset.copy),t=el.textContent,old=b.textContent;
+    var done=function(){b.textContent=document.documentElement.lang==='vi'?'Đã chép':'Copied';setTimeout(function(){b.textContent=old;},1500);};
+    var fallback=function(){var r=document.createRange();r.selectNodeContents(el);var s=getSelection();s.removeAllRanges();s.addRange(r);};
+    if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(t).then(done,fallback);}else fallback();
+  });});
+})();
+</script>
+</body>
+</html>

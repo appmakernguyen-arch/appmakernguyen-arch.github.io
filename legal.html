@@ -1,0 +1,129 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>VietLish · Legal and support</title>
+<meta name="description" content="VietLish by rubezapps: legal and support.">
+<link rel="canonical" href="https://appmakernguyen-arch.github.io/legal.html">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700;800&display=swap">
+<style>
+/* Layout: a quiet policy reader. Sticky top bar with page tabs + language switch, one readable column. */
+:root{
+  --bg:#f3f8f4; --surface:#ffffff; --ink:#183e32; --muted:#55705f; --line:#d9e8de; --accent:#17684f; --accent-soft:#e3f2e8; --warn:#8a5a00; --warn-soft:#fff4d6;
+  --body:"Be Vietnam Pro",system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0f1c17;--surface:#152820;--ink:#e6f3ea;--muted:#a8c3b3;--line:#24402f;--accent:#5fd3a2;--accent-soft:#183a2b;--warn:#ffd27a;--warn-soft:#3a2d10;color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#0f1c17;--surface:#152820;--ink:#e6f3ea;--muted:#a8c3b3;--line:#24402f;--accent:#5fd3a2;--accent-soft:#183a2b;--warn:#ffd27a;--warn-soft:#3a2d10;color-scheme:dark}
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--ink);font-family:var(--body);font-size:16px;line-height:1.65;margin:0}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:10;background:var(--surface)}
+.top{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:var(--surface);border-bottom:1px solid var(--line)}
+.top-in{max-width:880px;margin:0 auto;padding-block:12px;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));display:flex;flex-wrap:wrap;gap:10px 16px;align-items:center}
+.brand{display:flex;align-items:center;gap:10px;font-weight:800;font-size:20px;letter-spacing:-.4px;text-decoration:none;color:var(--ink)}
+.mark{width:34px;height:34px;border-radius:10px;background:var(--accent);display:grid;place-items:center}
+.mark svg{width:18px;height:18px}
+.brand i{font-style:normal;color:var(--accent)}
+nav{display:flex;flex-wrap:wrap;gap:6px;flex:1;min-width:0}
+nav a{font-size:14px;font-weight:600;color:var(--muted);text-decoration:none;padding:6px 12px;border-radius:999px}
+nav a[aria-current="page"]{background:var(--accent-soft);color:var(--accent)}
+nav a:focus-visible,.lang button:focus-visible,.copy:focus-visible{outline:3px solid var(--accent);outline-offset:2px}
+.lang{display:flex;border:1px solid var(--line);border-radius:999px;overflow:hidden}
+.lang button{font:inherit;font-size:13px;font-weight:700;border:0;background:transparent;color:var(--muted);padding:6px 12px;cursor:pointer}
+.lang button[aria-pressed="true"]{background:var(--accent);color:var(--surface)}
+main{max-width:880px;margin:0 auto;padding-block:32px 64px;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+article{background:var(--surface);border:1px solid var(--line);border-radius:20px;padding:clamp(20px,4vw,44px)}
+article>*{max-width:68ch}
+h1{font-size:clamp(28px,4vw,38px);line-height:1.15;letter-spacing:-.8px;margin:0 0 6px;text-wrap:balance}
+h2{font-size:21px;letter-spacing:-.3px;margin:34px 0 8px;text-wrap:balance}
+h3{font-size:17px;margin:22px 0 4px}
+p,li{color:var(--ink)}
+.meta{color:var(--muted);font-size:14px;margin:0 0 22px}
+ul{padding-left:22px}
+li{margin:4px 0}
+.note{background:var(--warn-soft);color:var(--warn);border-radius:12px;padding:12px 16px;font-size:15px}
+.box{background:var(--accent-soft);border-radius:14px;padding:14px 18px}
+.contact{display:flex;flex-wrap:wrap;align-items:center;gap:10px}
+.contact code{font-family:var(--body);font-weight:700;font-size:17px;color:var(--accent);user-select:all}
+.copy{font:inherit;font-size:13px;font-weight:700;border:1px solid var(--line);background:var(--surface);color:var(--ink);border-radius:999px;padding:4px 12px;cursor:pointer}
+.tbl{overflow-x:auto;margin:10px 0}
+table{border-collapse:collapse;width:100%;min-width:560px;font-size:14.5px}
+th,td{text-align:left;vertical-align:top;border-top:1px solid var(--line);padding:9px 10px}
+th{color:var(--muted);font-weight:700;font-size:12.5px;text-transform:uppercase;letter-spacing:.06em;border-top:0}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px;margin:18px 0 0}
+.card{display:block;border:1px solid var(--line);border-radius:16px;padding:16px 18px;text-decoration:none;color:var(--ink);background:var(--surface)}
+.card b{display:block;font-size:17px}
+.card span{color:var(--muted);font-size:14px}
+.card:hover{border-color:var(--accent)}
+footer{color:var(--muted);font-size:13px;text-align:center;margin-top:22px}
+[data-l="vi"]{display:none}
+html[lang="vi"] [data-l="en"]{display:none}
+html[lang="vi"] [data-l="vi"]{display:revert}
+.top-in{justify-content:space-between}.card b[data-l="vi"]{display:none}html[lang="vi"] .card b[data-l="en"]{display:none}html[lang="vi"] .card b[data-l="vi"]{display:block}
+nav{order:3;flex-basis:100%;overflow-x:auto;flex-wrap:nowrap;scrollbar-width:none}nav a{white-space:nowrap}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+</head>
+<body>
+<header class="top"><div class="top-in">
+  <a class="brand" href="legal.html" aria-current="page"><span class="mark"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5.5v13l11-6.5z" fill="#fff"/></svg></span><span>Viet<i>Lish</i></span></a>
+  <nav aria-label="Pages">
+    <a href="legal.html" aria-current="page"><span data-l="en">Overview</span><span data-l="vi">Tổng quan</span></a>
+    <a href="privacy.html"><span data-l="en">Privacy</span><span data-l="vi">Quyền riêng tư</span></a>
+    <a href="terms.html"><span data-l="en">Terms</span><span data-l="vi">Điều khoản</span></a>
+    <a href="children.html"><span data-l="en">Children</span><span data-l="vi">Trẻ em</span></a>
+    <a href="delete-account.html"><span data-l="en">Delete account</span><span data-l="vi">Xóa tài khoản</span></a>
+    <a href="support.html"><span data-l="en">Support</span><span data-l="vi">Hỗ trợ</span></a>
+  </nav>
+  <div class="lang" role="group" aria-label="Language"><button id="b-en" type="button" data-set="en">EN</button><button id="b-vi" type="button" data-set="vi">VI</button></div>
+</div></header>
+<main>
+<article id="home">
+  <div data-l="en">
+    <h1>VietLish legal and support</h1>
+    <p class="meta">Published by rubezapps · Last updated 2 November 2026</p>
+    <p>VietLish is a hands-free language app for the whole family: adults, teens and kids learn English or Vietnamese (Southern or Northern) by listening and speaking in guided lessons. Lessons were written by Teacher Ruben, who has taught in Vietnam for almost 10 years.</p>
+    <p>This site holds everything about how VietLish handles your data, the rules for using the app, and how to get help or delete your account.</p>
+  </div>
+  <div data-l="vi">
+    <h1>VietLish: pháp lý và hỗ trợ</h1>
+    <p class="meta">Phát hành bởi rubezapps · Cập nhật ngày 2 tháng 11 năm 2026</p>
+    <p>VietLish là ứng dụng học ngoại ngữ rảnh tay cho cả nhà: người lớn, tuổi teen và trẻ em học tiếng Anh hoặc tiếng Việt (giọng miền Nam hoặc miền Bắc) bằng cách nghe và nói theo bài học có hướng dẫn. Bài học do Teacher Ruben biên soạn, người đã dạy học tại Việt Nam gần 10 năm.</p>
+    <p>Trang này gồm mọi thông tin về cách VietLish xử lý dữ liệu của bạn, quy định sử dụng ứng dụng, cách nhận hỗ trợ và cách xóa tài khoản.</p>
+  </div>
+  <div class="cards">
+    <a class="card" href="privacy.html"><b data-l="en">Privacy policy</b><b data-l="vi">Chính sách quyền riêng tư</b><span data-l="en">What we collect and why</span><span data-l="vi">Chúng tôi thu thập gì và vì sao</span></a>
+    <a class="card" href="terms.html"><b data-l="en">Terms of use</b><b data-l="vi">Điều khoản sử dụng</b><span data-l="en">Subscriptions, ads, rules</span><span data-l="vi">Gói đăng ký, quảng cáo, quy định</span></a>
+    <a class="card" href="children.html"><b data-l="en">Children's privacy</b><b data-l="vi">Quyền riêng tư của trẻ em</b><span data-l="en">Kids and Teens modes</span><span data-l="vi">Chế độ Bé và Tuổi teen</span></a>
+    <a class="card" href="delete-account.html"><b data-l="en">Delete your account</b><b data-l="vi">Xóa tài khoản</b><span data-l="en">In the app or by email</span><span data-l="vi">Trong ứng dụng hoặc qua email</span></a>
+    <a class="card" href="support.html"><b data-l="en">Support</b><b data-l="vi">Hỗ trợ</b><span data-l="en">Help and contact</span><span data-l="vi">Trợ giúp và liên hệ</span></a>
+  </div>
+  <h2 data-l="en">Links for app stores</h2><h2 data-l="vi">Đường dẫn cho cửa hàng ứng dụng</h2>
+  <div class="tbl"><table>
+    <tr><th data-l="en">Store field</th><th data-l="vi">Mục trên cửa hàng</th><th data-l="en">Page</th><th data-l="vi">Trang</th></tr>
+    <tr><td>Google Play · Privacy policy / App Store · Privacy Policy URL</td><td><a href="privacy.html">https://appmakernguyen-arch.github.io/privacy.html</a></td></tr>
+    <tr><td>Google Play · Account deletion URL</td><td><a href="delete-account.html">https://appmakernguyen-arch.github.io/delete-account.html</a></td></tr>
+    <tr><td>App Store · Support URL</td><td><a href="support.html">https://appmakernguyen-arch.github.io/support.html</a></td></tr>
+    <tr><td>Google Play · Website / App Store · Marketing URL</td><td><a href="index.html">https://appmakernguyen-arch.github.io/</a></td></tr>
+    <tr><td>App Store · Terms (EULA) / Kids &amp; Families</td><td><a href="terms.html">https://appmakernguyen-arch.github.io/terms.html</a> · <a href="children.html">https://appmakernguyen-arch.github.io/children.html</a></td></tr>
+  </table></div>
+</article>
+<footer>© 2026 rubezapps · VietLish · appmakernguyen@gmail.com</footer>
+</main>
+<script>
+(function(){
+  function setLang(l){document.documentElement.lang=l;document.getElementById('b-en').setAttribute('aria-pressed',l==='en');document.getElementById('b-vi').setAttribute('aria-pressed',l==='vi');try{localStorage.setItem('vl-legal-lang',l);}catch(e){}}
+  var q=(location.search.match(/[?&]lang=(en|vi)/)||[])[1],saved=null;try{saved=localStorage.getItem('vl-legal-lang');}catch(e){}
+  setLang(q||saved||((navigator.language||'').toLowerCase().indexOf('vi')===0?'vi':'en'));
+  document.querySelectorAll('.lang button').forEach(function(b){b.addEventListener('click',function(){setLang(b.dataset.set);});});
+  document.querySelectorAll('.copy').forEach(function(b){b.addEventListener('click',function(){
+    var el=document.getElementById(b.dataset.copy),t=el.textContent,old=b.textContent;
+    var done=function(){b.textContent=document.documentElement.lang==='vi'?'Đã chép':'Copied';setTimeout(function(){b.textContent=old;},1500);};
+    var fallback=function(){var r=document.createRange();r.selectNodeContents(el);var s=getSelection();s.removeAllRanges();s.addRange(r);};
+    if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(t).then(done,fallback);}else fallback();
+  });});
+})();
+</script>
+</body>
+</html>

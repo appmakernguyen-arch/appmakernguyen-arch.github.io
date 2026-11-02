@@ -1,0 +1,173 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>VietLish · Terms of use</title>
+<meta name="description" content="VietLish by rubezapps: terms of use.">
+<link rel="canonical" href="https://appmakernguyen-arch.github.io/terms.html">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700;800&display=swap">
+<style>
+/* Layout: a quiet policy reader. Sticky top bar with page tabs + language switch, one readable column. */
+:root{
+  --bg:#f3f8f4; --surface:#ffffff; --ink:#183e32; --muted:#55705f; --line:#d9e8de; --accent:#17684f; --accent-soft:#e3f2e8; --warn:#8a5a00; --warn-soft:#fff4d6;
+  --body:"Be Vietnam Pro",system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0f1c17;--surface:#152820;--ink:#e6f3ea;--muted:#a8c3b3;--line:#24402f;--accent:#5fd3a2;--accent-soft:#183a2b;--warn:#ffd27a;--warn-soft:#3a2d10;color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#0f1c17;--surface:#152820;--ink:#e6f3ea;--muted:#a8c3b3;--line:#24402f;--accent:#5fd3a2;--accent-soft:#183a2b;--warn:#ffd27a;--warn-soft:#3a2d10;color-scheme:dark}
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--ink);font-family:var(--body);font-size:16px;line-height:1.65;margin:0}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:10;background:var(--surface)}
+.top{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:var(--surface);border-bottom:1px solid var(--line)}
+.top-in{max-width:880px;margin:0 auto;padding-block:12px;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));display:flex;flex-wrap:wrap;gap:10px 16px;align-items:center}
+.brand{display:flex;align-items:center;gap:10px;font-weight:800;font-size:20px;letter-spacing:-.4px;text-decoration:none;color:var(--ink)}
+.mark{width:34px;height:34px;border-radius:10px;background:var(--accent);display:grid;place-items:center}
+.mark svg{width:18px;height:18px}
+.brand i{font-style:normal;color:var(--accent)}
+nav{display:flex;flex-wrap:wrap;gap:6px;flex:1;min-width:0}
+nav a{font-size:14px;font-weight:600;color:var(--muted);text-decoration:none;padding:6px 12px;border-radius:999px}
+nav a[aria-current="page"]{background:var(--accent-soft);color:var(--accent)}
+nav a:focus-visible,.lang button:focus-visible,.copy:focus-visible{outline:3px solid var(--accent);outline-offset:2px}
+.lang{display:flex;border:1px solid var(--line);border-radius:999px;overflow:hidden}
+.lang button{font:inherit;font-size:13px;font-weight:700;border:0;background:transparent;color:var(--muted);padding:6px 12px;cursor:pointer}
+.lang button[aria-pressed="true"]{background:var(--accent);color:var(--surface)}
+main{max-width:880px;margin:0 auto;padding-block:32px 64px;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+article{background:var(--surface);border:1px solid var(--line);border-radius:20px;padding:clamp(20px,4vw,44px)}
+article>*{max-width:68ch}
+h1{font-size:clamp(28px,4vw,38px);line-height:1.15;letter-spacing:-.8px;margin:0 0 6px;text-wrap:balance}
+h2{font-size:21px;letter-spacing:-.3px;margin:34px 0 8px;text-wrap:balance}
+h3{font-size:17px;margin:22px 0 4px}
+p,li{color:var(--ink)}
+.meta{color:var(--muted);font-size:14px;margin:0 0 22px}
+ul{padding-left:22px}
+li{margin:4px 0}
+.note{background:var(--warn-soft);color:var(--warn);border-radius:12px;padding:12px 16px;font-size:15px}
+.box{background:var(--accent-soft);border-radius:14px;padding:14px 18px}
+.contact{display:flex;flex-wrap:wrap;align-items:center;gap:10px}
+.contact code{font-family:var(--body);font-weight:700;font-size:17px;color:var(--accent);user-select:all}
+.copy{font:inherit;font-size:13px;font-weight:700;border:1px solid var(--line);background:var(--surface);color:var(--ink);border-radius:999px;padding:4px 12px;cursor:pointer}
+.tbl{overflow-x:auto;margin:10px 0}
+table{border-collapse:collapse;width:100%;min-width:560px;font-size:14.5px}
+th,td{text-align:left;vertical-align:top;border-top:1px solid var(--line);padding:9px 10px}
+th{color:var(--muted);font-weight:700;font-size:12.5px;text-transform:uppercase;letter-spacing:.06em;border-top:0}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px;margin:18px 0 0}
+.card{display:block;border:1px solid var(--line);border-radius:16px;padding:16px 18px;text-decoration:none;color:var(--ink);background:var(--surface)}
+.card b{display:block;font-size:17px}
+.card span{color:var(--muted);font-size:14px}
+.card:hover{border-color:var(--accent)}
+footer{color:var(--muted);font-size:13px;text-align:center;margin-top:22px}
+[data-l="vi"]{display:none}
+html[lang="vi"] [data-l="en"]{display:none}
+html[lang="vi"] [data-l="vi"]{display:revert}
+.top-in{justify-content:space-between}.card b[data-l="vi"]{display:none}html[lang="vi"] .card b[data-l="en"]{display:none}html[lang="vi"] .card b[data-l="vi"]{display:block}
+nav{order:3;flex-basis:100%;overflow-x:auto;flex-wrap:nowrap;scrollbar-width:none}nav a{white-space:nowrap}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+</head>
+<body>
+<header class="top"><div class="top-in">
+  <a class="brand" href="legal.html"><span class="mark"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5.5v13l11-6.5z" fill="#fff"/></svg></span><span>Viet<i>Lish</i></span></a>
+  <nav aria-label="Pages">
+    <a href="legal.html"><span data-l="en">Overview</span><span data-l="vi">Tổng quan</span></a>
+    <a href="privacy.html"><span data-l="en">Privacy</span><span data-l="vi">Quyền riêng tư</span></a>
+    <a href="terms.html" aria-current="page"><span data-l="en">Terms</span><span data-l="vi">Điều khoản</span></a>
+    <a href="children.html"><span data-l="en">Children</span><span data-l="vi">Trẻ em</span></a>
+    <a href="delete-account.html"><span data-l="en">Delete account</span><span data-l="vi">Xóa tài khoản</span></a>
+    <a href="support.html"><span data-l="en">Support</span><span data-l="vi">Hỗ trợ</span></a>
+  </nav>
+  <div class="lang" role="group" aria-label="Language"><button id="b-en" type="button" data-set="en">EN</button><button id="b-vi" type="button" data-set="vi">VI</button></div>
+</div></header>
+<main>
+<article id="terms">
+<div data-l="en">
+  <h1>Terms of use</h1>
+  <p class="meta">Effective 2 November 2026 · VietLish by rubezapps</p>
+  <p>By downloading or using VietLish you agree to these terms. If you do not agree, please do not use the app.</p>
+  <h2>1. Who can use VietLish</h2>
+  <p>You must be 18 or older to create an account and buy a subscription. Children and teenagers may use Kids and Teens modes on a parent's or guardian's device with their permission and supervision.</p>
+  <h2>2. Your account</h2>
+  <p>Sign in with Google or Apple. Keep your device and sign-in secure. You are responsible for activity on your account. You can delete your account at any time (see <a href="delete-account.html">Delete account</a>).</p>
+  <h2>3. Free lessons and subscription</h2>
+  <ul>
+    <li>Lesson 1 of each mode and level is free.</li>
+    <li>One VietLish subscription unlocks all lessons in Adult, Teens and Kids modes for your household on your account.</li>
+    <li>Subscriptions renew automatically until you cancel. The price, billing period and any trial are shown in Google Play or the App Store before you buy.</li>
+    <li>Cancel any time in Google Play (Payments &amp; subscriptions) or your Apple ID settings. Access continues until the end of the paid period.</li>
+    <li>Refunds follow Google Play and App Store rules and applicable law. Deleting your account does not cancel the subscription.</li>
+  </ul>
+  <h2>4. Advertising</h2>
+  <p>In Adult mode, a short full-screen advert may appear after you finish a guided lesson, including for subscribers. Adverts never interrupt a lesson.</p>
+  <p><b>Free lesson with an ad.</b> In each mode (Adults, Teens and Kids) you can choose to watch one short ad a day to unlock one locked lesson for 24 hours. You must be signed in, and you must watch the whole ad to get the reward. In Kids mode a grown-up answers a quick question before the ad plays. Ads in Kids and Teens are child-directed: not personalised and suitable for all ages. Ads may not always be available, and this offer can change.</p>
+  <p>There are no other adverts in Kids or Teens modes.</p>
+  <h2>5. Lesson content</h2>
+  <p>All lessons, scripts, pictures and recordings belong to rubezapps or its licensors. You may use them for your own personal learning. You may not copy, resell, publish or reverse-engineer the app or its content.</p>
+  <p>Lesson audio uses computer-generated (AI) voices. We review it for accuracy, but mistakes in pronunciation or wording can happen. Please tell us if you find one.</p>
+  <h2>6. Acceptable use</h2>
+  <p>Do not misuse the app, try to break its security, share paid content, or use it in a way that breaks the law.</p>
+  <h2>7. No guarantee of results</h2>
+  <p>VietLish helps you practise. We do not promise a particular level, exam score or fluency.</p>
+  <h2>8. Availability and changes</h2>
+  <p>We may update, add or remove features and lessons. Some features need an internet connection. We are not responsible for interruptions caused by networks, devices or app stores.</p>
+  <h2>9. Liability</h2>
+  <p>To the extent the law allows, the app is provided "as is", and rubezapps is not liable for indirect or consequential losses. Our total liability is limited to the amount you paid for VietLish in the 12 months before the claim. Nothing here limits rights you have under consumer law.</p>
+  <h2>10. Apple users</h2>
+  <p>If you use the iOS app, these terms are between you and rubezapps, not Apple. Apple is not responsible for the app or its support. Apple's standard Licensed Application End User License Agreement also applies, and Apple may enforce these terms as a third-party beneficiary.</p>
+  <h2>11. Law and contact</h2>
+  <p>These terms are governed by the laws of Vietnam, without affecting mandatory consumer protections where you live. Questions: <b>appmakernguyen@gmail.com</b>.</p>
+</div>
+<div data-l="vi">
+  <h1>Điều khoản sử dụng</h1>
+  <p class="meta">Hiệu lực từ 2/11/2026 · VietLish của rubezapps</p>
+  <p>Khi tải hoặc sử dụng VietLish, bạn đồng ý với các điều khoản này. Nếu không đồng ý, vui lòng không sử dụng ứng dụng.</p>
+  <h2>1. Ai được sử dụng</h2>
+  <p>Bạn phải từ 18 tuổi để tạo tài khoản và mua gói đăng ký. Trẻ em và tuổi teen có thể dùng chế độ Bé và Tuổi teen trên thiết bị của cha mẹ hoặc người giám hộ, khi được cho phép và có giám sát.</p>
+  <h2>2. Tài khoản</h2>
+  <p>Đăng nhập bằng Google hoặc Apple. Hãy giữ an toàn thiết bị và tài khoản. Bạn chịu trách nhiệm về hoạt động trên tài khoản của mình. Bạn có thể xóa tài khoản bất cứ lúc nào (xem <a href="delete-account.html">Xóa tài khoản</a>).</p>
+  <h2>3. Bài học miễn phí và gói đăng ký</h2>
+  <ul>
+    <li>Bài 1 của mỗi chế độ và trình độ là miễn phí.</li>
+    <li>Một gói VietLish mở tất cả bài học ở chế độ Người lớn, Tuổi teen và Bé cho gia đình bạn trên tài khoản của bạn.</li>
+    <li>Gói tự động gia hạn đến khi bạn hủy. Giá, chu kỳ thanh toán và thời gian dùng thử (nếu có) hiển thị trên Google Play hoặc App Store trước khi mua.</li>
+    <li>Hủy bất cứ lúc nào trong Google Play (Thanh toán và gói thuê bao) hoặc cài đặt Apple ID. Bạn vẫn dùng được đến hết kỳ đã trả.</li>
+    <li>Hoàn tiền theo quy định của Google Play, App Store và pháp luật. Xóa tài khoản không tự hủy gói đăng ký.</li>
+  </ul>
+  <h2>4. Quảng cáo</h2>
+  <p>Ở chế độ Người lớn, có thể có một quảng cáo toàn màn hình ngắn sau khi bạn học xong một bài, kể cả với người đã đăng ký. Quảng cáo không bao giờ chen giữa bài học.</p>
+  <p><b>Bài miễn phí nhờ xem quảng cáo.</b> Ở mỗi chế độ (Người lớn, Tuổi teen và Bé), mỗi ngày bạn có thể chọn xem một quảng cáo ngắn để mở một bài bị khóa trong 24 giờ. Bạn cần đăng nhập và xem hết quảng cáo để nhận phần thưởng. Ở chế độ Bé, người lớn trả lời một câu hỏi nhanh trước khi phát quảng cáo. Quảng cáo ở chế độ Bé và Tuổi teen dành cho trẻ em: không cá nhân hóa và phù hợp mọi lứa tuổi. Quảng cáo không phải lúc nào cũng có, và ưu đãi này có thể thay đổi.</p>
+  <p>Ngoài ra không có quảng cáo nào khác ở chế độ Bé và Tuổi teen.</p>
+  <h2>5. Nội dung bài học</h2>
+  <p>Toàn bộ bài học, kịch bản, hình ảnh và bản thu thuộc về rubezapps hoặc bên cấp phép. Bạn chỉ được dùng cho việc học cá nhân. Không sao chép, bán lại, đăng tải hoặc dịch ngược ứng dụng hay nội dung.</p>
+  <p>Âm thanh bài học dùng giọng đọc máy (AI). Chúng tôi kiểm tra độ chính xác, nhưng vẫn có thể có lỗi phát âm hoặc từ ngữ. Hãy báo cho chúng tôi nếu bạn phát hiện.</p>
+  <h2>6. Sử dụng đúng mục đích</h2>
+  <p>Không lạm dụng ứng dụng, phá vỡ bảo mật, chia sẻ nội dung trả phí hoặc dùng ứng dụng trái pháp luật.</p>
+  <h2>7. Không cam kết kết quả</h2>
+  <p>VietLish giúp bạn luyện tập. Chúng tôi không cam kết một trình độ, điểm thi hay mức độ lưu loát cụ thể.</p>
+  <h2>8. Dịch vụ và thay đổi</h2>
+  <p>Chúng tôi có thể cập nhật, thêm hoặc bớt tính năng và bài học. Một số tính năng cần internet. Chúng tôi không chịu trách nhiệm về gián đoạn do mạng, thiết bị hoặc cửa hàng ứng dụng.</p>
+  <h2>9. Trách nhiệm</h2>
+  <p>Trong phạm vi pháp luật cho phép, ứng dụng được cung cấp "nguyên trạng" và rubezapps không chịu trách nhiệm về thiệt hại gián tiếp. Tổng trách nhiệm giới hạn ở số tiền bạn đã trả cho VietLish trong 12 tháng trước khi khiếu nại. Điều này không hạn chế quyền của bạn theo luật bảo vệ người tiêu dùng.</p>
+  <h2>10. Người dùng Apple</h2>
+  <p>Với ứng dụng iOS, điều khoản này là giữa bạn và rubezapps, không phải Apple. Apple không chịu trách nhiệm về ứng dụng hay hỗ trợ. Thỏa thuận cấp phép tiêu chuẩn (EULA) của Apple cũng áp dụng, và Apple có thể thực thi điều khoản này với tư cách bên thứ ba thụ hưởng.</p>
+  <h2>11. Luật áp dụng và liên hệ</h2>
+  <p>Điều khoản này tuân theo pháp luật Việt Nam, không ảnh hưởng đến quyền bảo vệ người tiêu dùng bắt buộc nơi bạn sống. Liên hệ: <b>appmakernguyen@gmail.com</b>.</p>
+</div>
+</article>
+<footer>© 2026 rubezapps · VietLish · appmakernguyen@gmail.com</footer>
+</main>
+<script>
+(function(){
+  function setLang(l){document.documentElement.lang=l;document.getElementById('b-en').setAttribute('aria-pressed',l==='en');document.getElementById('b-vi').setAttribute('aria-pressed',l==='vi');try{localStorage.setItem('vl-legal-lang',l);}catch(e){}}
+  var q=(location.search.match(/[?&]lang=(en|vi)/)||[])[1],saved=null;try{saved=localStorage.getItem('vl-legal-lang');}catch(e){}
+  setLang(q||saved||((navigator.language||'').toLowerCase().indexOf('vi')===0?'vi':'en'));
+  document.querySelectorAll('.lang button').forEach(function(b){b.addEventListener('click',function(){setLang(b.dataset.set);});});
+  document.querySelectorAll('.copy').forEach(function(b){b.addEventListener('click',function(){
+    var el=document.getElementById(b.dataset.copy),t=el.textContent,old=b.textContent;
+    var done=function(){b.textContent=document.documentElement.lang==='vi'?'Đã chép':'Copied';setTimeout(function(){b.textContent=old;},1500);};
+    var fallback=function(){var r=document.createRange();r.selectNodeContents(el);var s=getSelection();s.removeAllRanges();s.addRange(r);};
+    if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(t).then(done,fallback);}else fallback();
+  });});
+})();
+</script>
+</body>
+</html>
