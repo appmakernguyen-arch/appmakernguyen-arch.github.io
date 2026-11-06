@@ -11,11 +11,11 @@
 <style>
 /* Layout: a quiet policy reader. Sticky top bar with page tabs + language switch, one readable column. */
 :root{
-  --bg:#f3f8f4; --surface:#ffffff; --ink:#183e32; --muted:#55705f; --line:#d9e8de; --accent:#17684f; --accent-soft:#e3f2e8; --warn:#8a5a00; --warn-soft:#fff4d6;
+  --bg:#fff6dc; --surface:#fffdf5; --ink:#3a1c0e; --muted:#7a5638; --line:#efd699; --accent:#a51c1c; --accent-soft:#fde4a6; --gold:#e0a91a; --warn:#8a5a00; --warn-soft:#fff4d6;
   --body:"Be Vietnam Pro",system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;
 }
-@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0f1c17;--surface:#152820;--ink:#e6f3ea;--muted:#a8c3b3;--line:#24402f;--accent:#5fd3a2;--accent-soft:#183a2b;--warn:#ffd27a;--warn-soft:#3a2d10;color-scheme:dark}}
-:root[data-theme="dark"]{--bg:#0f1c17;--surface:#152820;--ink:#e6f3ea;--muted:#a8c3b3;--line:#24402f;--accent:#5fd3a2;--accent-soft:#183a2b;--warn:#ffd27a;--warn-soft:#3a2d10;color-scheme:dark}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#1d1109;--surface:#2a190d;--ink:#fbeccb;--muted:#d8bd8a;--line:#4a3319;--accent:#f2c14e;--accent-soft:#40290f;--gold:#f2c14e;--warn:#ffd27a;--warn-soft:#3a2d10;color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#1d1109;--surface:#2a190d;--ink:#fbeccb;--muted:#d8bd8a;--line:#4a3319;--accent:#f2c14e;--accent-soft:#40290f;--gold:#f2c14e;--warn:#ffd27a;--warn-soft:#3a2d10;color-scheme:dark}
 *{box-sizing:border-box}
 body{background:var(--bg);color:var(--ink);font-family:var(--body);font-size:16px;line-height:1.65;margin:0}
 body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:10;background:var(--surface)}
@@ -63,12 +63,14 @@ html[lang="vi"] [data-l="vi"]{display:revert}
 .top-in{justify-content:space-between}.card b[data-l="vi"]{display:none}html[lang="vi"] .card b[data-l="en"]{display:none}html[lang="vi"] .card b[data-l="vi"]{display:block}
 nav{order:3;flex-basis:100%;overflow-x:auto;flex-wrap:nowrap;scrollbar-width:none}nav a{white-space:nowrap}
 @media (prefers-reduced-motion:reduce){*{transition:none!important}}
+nav{flex-wrap:wrap!important;overflow:visible!important}
 </style>
 </head>
 <body>
 <header class="top"><div class="top-in">
-  <a class="brand" href="legal.html"><span class="mark"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5.5v13l11-6.5z" fill="#fff"/></svg></span><span>Viet<i>Lish</i></span></a>
+  <a class="brand" href="index.html"><span class="mark"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5.5v13l11-6.5z" style="fill:var(--surface)"/></svg></span><span>Viet<i>Lish</i></span></a>
   <nav aria-label="Pages">
+    <a href="index.html"><span data-l="en">Home</span><span data-l="vi">Trang chủ</span></a>
     <a href="legal.html"><span data-l="en">Overview</span><span data-l="vi">Tổng quan</span></a>
     <a href="privacy.html"><span data-l="en">Privacy</span><span data-l="vi">Quyền riêng tư</span></a>
     <a href="terms.html"><span data-l="en">Terms</span><span data-l="vi">Điều khoản</span></a>

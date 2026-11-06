@@ -2,37 +2,208 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>VietLish</title>
-<meta name="description" content="VietLish: speak English or Vietnamese through short, real-life lessons.">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>VietLish · Speak English or Vietnamese</title>
+<meta name="description" content="VietLish: speak English or Southern Vietnamese through short, real-life lessons. Courses for adults, teens and kids.">
+<link rel="canonical" href="https://appmakernguyen-arch.github.io/">
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+<meta property="og:type" content="website">
+<meta property="og:title" content="VietLish · Speak English or Vietnamese">
+<meta property="og:description" content="Short, real-life speaking lessons for adults, teens and kids. Listen, repeat and answer out loud.">
+<meta property="og:image" content="https://appmakernguyen-arch.github.io/assets/og-image.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700;800&display=swap">
 <style>
-body{margin:0;font:17px/1.6 system-ui,-apple-system,sans-serif;background:#edf6ef;color:#183e32}
-main{max-width:640px;margin:0 auto;padding:48px 20px}
-h1{font-size:40px;margin:0 0 4px}
-.tag{color:#516b60;margin:0 0 32px}
-section{background:#fff;border-radius:20px;padding:24px;margin-bottom:16px}
-h2{font-size:20px;margin:0 0 8px}
-p{margin:0}
-footer{color:#516b60;font-size:14px;margin-top:32px}
-footer a{color:#17684f;margin-right:14px;white-space:nowrap}
+/* Layout: a quiet policy reader. Sticky top bar with page tabs + language switch, one readable column. */
+:root{
+  --bg:#fff6dc; --surface:#fffdf5; --ink:#3a1c0e; --muted:#7a5638; --line:#efd699; --accent:#a51c1c; --accent-soft:#fde4a6; --gold:#e0a91a; --warn:#8a5a00; --warn-soft:#fff4d6;
+  --body:"Be Vietnam Pro",system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#1d1109;--surface:#2a190d;--ink:#fbeccb;--muted:#d8bd8a;--line:#4a3319;--accent:#f2c14e;--accent-soft:#40290f;--gold:#f2c14e;--warn:#ffd27a;--warn-soft:#3a2d10;color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#1d1109;--surface:#2a190d;--ink:#fbeccb;--muted:#d8bd8a;--line:#4a3319;--accent:#f2c14e;--accent-soft:#40290f;--gold:#f2c14e;--warn:#ffd27a;--warn-soft:#3a2d10;color-scheme:dark}
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--ink);font-family:var(--body);font-size:16px;line-height:1.65;margin:0}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:10;background:var(--surface)}
+.top{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:var(--surface);border-bottom:1px solid var(--line)}
+.top-in{max-width:880px;margin:0 auto;padding-block:12px;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));display:flex;flex-wrap:wrap;gap:10px 16px;align-items:center}
+.brand{display:flex;align-items:center;gap:10px;font-weight:800;font-size:20px;letter-spacing:-.4px;text-decoration:none;color:var(--ink)}
+.mark{width:34px;height:34px;border-radius:10px;background:var(--accent);display:grid;place-items:center}
+.mark svg{width:18px;height:18px}
+.brand i{font-style:normal;color:var(--accent)}
+nav{display:flex;flex-wrap:wrap;gap:6px;flex:1;min-width:0}
+nav a{font-size:14px;font-weight:600;color:var(--muted);text-decoration:none;padding:6px 12px;border-radius:999px}
+nav a[aria-current="page"]{background:var(--accent-soft);color:var(--accent)}
+nav a:focus-visible,.lang button:focus-visible,.copy:focus-visible{outline:3px solid var(--accent);outline-offset:2px}
+.lang{display:flex;border:1px solid var(--line);border-radius:999px;overflow:hidden}
+.lang button{font:inherit;font-size:13px;font-weight:700;border:0;background:transparent;color:var(--muted);padding:6px 12px;cursor:pointer}
+.lang button[aria-pressed="true"]{background:var(--accent);color:var(--surface)}
+main{max-width:880px;margin:0 auto;padding-block:32px 64px;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+article{background:var(--surface);border:1px solid var(--line);border-radius:20px;padding:clamp(20px,4vw,44px)}
+article>*{max-width:68ch}
+h1{font-size:clamp(28px,4vw,38px);line-height:1.15;letter-spacing:-.8px;margin:0 0 6px;text-wrap:balance}
+h2{font-size:21px;letter-spacing:-.3px;margin:34px 0 8px;text-wrap:balance}
+h3{font-size:17px;margin:22px 0 4px}
+p,li{color:var(--ink)}
+.meta{color:var(--muted);font-size:14px;margin:0 0 22px}
+ul{padding-left:22px}
+li{margin:4px 0}
+.note{background:var(--warn-soft);color:var(--warn);border-radius:12px;padding:12px 16px;font-size:15px}
+.box{background:var(--accent-soft);border-radius:14px;padding:14px 18px}
+.contact{display:flex;flex-wrap:wrap;align-items:center;gap:10px}
+.contact code{font-family:var(--body);font-weight:700;font-size:17px;color:var(--accent);user-select:all}
+.copy{font:inherit;font-size:13px;font-weight:700;border:1px solid var(--line);background:var(--surface);color:var(--ink);border-radius:999px;padding:4px 12px;cursor:pointer}
+.tbl{overflow-x:auto;margin:10px 0}
+table{border-collapse:collapse;width:100%;min-width:560px;font-size:14.5px}
+th,td{text-align:left;vertical-align:top;border-top:1px solid var(--line);padding:9px 10px}
+th{color:var(--muted);font-weight:700;font-size:12.5px;text-transform:uppercase;letter-spacing:.06em;border-top:0}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px;margin:18px 0 0}
+.card{display:block;border:1px solid var(--line);border-radius:16px;padding:16px 18px;text-decoration:none;color:var(--ink);background:var(--surface)}
+.card b{display:block;font-size:17px}
+.card span{color:var(--muted);font-size:14px}
+.card:hover{border-color:var(--accent)}
+footer{color:var(--muted);font-size:13px;text-align:center;margin-top:22px}
+[data-l="vi"]{display:none}
+html[lang="vi"] [data-l="en"]{display:none}
+html[lang="vi"] [data-l="vi"]{display:revert}
+.top-in{justify-content:space-between}.card b[data-l="vi"]{display:none}html[lang="vi"] .card b[data-l="en"]{display:none}html[lang="vi"] .card b[data-l="vi"]{display:block}
+nav{order:3;flex-basis:100%;overflow-x:auto;flex-wrap:nowrap;scrollbar-width:none}nav a{white-space:nowrap}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+nav{flex-wrap:wrap!important;overflow:visible!important}
+
+/* ---- Home page: gold and lucky red ---- */
+body{background:radial-gradient(1200px 500px at 50% -120px,var(--accent-soft),transparent 70%),var(--bg)}
+main{max-width:1040px}
+.hero{display:grid;grid-template-columns:1.15fr .85fr;gap:36px;align-items:center;padding:44px 0 12px}
+.hero h1{font-size:clamp(36px,6vw,58px);line-height:1.05;letter-spacing:-1.2px;margin:0 0 14px}
+.hero h1 em{font-style:normal;color:var(--accent)}
+.hero p.lead{font-size:19px;color:var(--muted);max-width:560px;margin:0 0 22px}
+.kicker{display:inline-block;background:var(--accent-soft);color:var(--accent);font-weight:700;font-size:13px;letter-spacing:.08em;text-transform:uppercase;border-radius:999px;padding:6px 14px;margin-bottom:16px;border:1px solid var(--gold)}
+.stores{display:flex;flex-wrap:wrap;gap:10px}.store{display:inline-flex;flex-direction:column;border:1.5px solid var(--gold);background:var(--surface);color:var(--ink);border-radius:14px;padding:9px 20px;min-width:176px}
+.store small{color:var(--muted);font-size:12px}.store b{font-size:17px}
+.phone{position:relative;width:100%;max-width:300px;margin:0 auto;background:#2a1408;border-radius:42px;padding:10px;box-shadow:0 22px 50px rgba(120,60,0,.28),0 0 0 3px var(--gold)}
+.phone img{display:block;width:100%;height:auto;border-radius:32px}
+.phone.small{max-width:230px;border-radius:34px;padding:8px}.phone.small img{border-radius:26px}
+section.block{padding:46px 0 0}
+section.block h2{font-size:clamp(26px,4vw,34px);letter-spacing:-.6px;margin:0 0 6px}
+section.block h2::after{content:"";display:block;width:56px;height:4px;border-radius:2px;background:linear-gradient(90deg,var(--gold),var(--accent));margin-top:10px}
+.sub{color:var(--muted);margin:10px 0 0;max-width:640px}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:16px;margin:20px 0 4px}
+.tile{background:var(--surface);border:1px solid var(--line);border-top:4px solid var(--gold);border-radius:18px;padding:20px}
+.tile h3{margin:0 0 6px;font-size:18px}.tile p{margin:0;color:var(--muted);font-size:15px}
+.tile .big{font-size:32px;font-weight:800;letter-spacing:-.6px;color:var(--accent)}
+.tile.best{background:linear-gradient(180deg,var(--accent-soft),var(--surface));border-color:var(--gold);box-shadow:0 10px 28px rgba(200,140,0,.2)}
+.tile .tag{display:inline-block;background:var(--accent);color:var(--surface);font-size:12px;font-weight:700;border-radius:999px;padding:3px 10px;margin-bottom:8px}
+.shots{display:flex;gap:22px;overflow-x:auto;padding:26px 4px 18px;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch}
+.shot{flex:0 0 auto;scroll-snap-align:center;text-align:center;width:230px}.shot p{margin:14px 0 0;font-weight:700}.shot small{display:block;color:var(--muted);font-weight:400;font-size:14px;margin-top:2px}
+.steps{counter-reset:s;list-style:none;padding:0;margin:20px 0}
+.steps li{counter-increment:s;background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:14px 18px 14px 62px;margin:10px 0;position:relative}
+.steps li::before{content:counter(s);position:absolute;left:16px;top:12px;width:32px;height:32px;border-radius:50%;background:linear-gradient(135deg,var(--gold),var(--accent));color:#fff;display:grid;place-items:center;font-weight:800}
+.topics{display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:14px;margin-top:20px}
+.topic{background:var(--surface);border:1px solid var(--line);border-radius:16px;overflow:hidden}.topic img{display:block;width:100%;height:auto;aspect-ratio:3/2;object-fit:cover}
+.topic p{margin:0;padding:10px 14px;font-weight:600;font-size:15px}.topic small{display:block;color:var(--muted);font-weight:400}
+details{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:4px 18px;margin:10px 0}
+summary{cursor:pointer;font-weight:700;padding:12px 0;list-style:none}summary::-webkit-details-marker{display:none}
+summary::after{content:"+";float:right;color:var(--accent);font-size:22px;line-height:1}details[open] summary::after{content:"\2212"}
+details p{margin:0 0 14px;color:var(--muted)}
+.band{margin-top:46px;background:linear-gradient(135deg,#a51c1c,#7d1010);color:#fff3cf;border-radius:24px;padding:34px 28px;text-align:center;box-shadow:0 14px 34px rgba(120,10,10,.25);border:2px solid var(--gold)}
+.band h2{margin:0 0 8px;font-size:clamp(24px,4vw,32px);color:#ffe08a}.band h2::after{display:none}.band p{margin:0 auto 18px;max-width:520px}
+.band .store{background:#fff7e0;border-color:#ffe08a;color:#3a1c0e}.band .stores{justify-content:center}
+.note{color:var(--muted);font-size:14px;margin-top:12px}
+.foot{padding:30px 0 10px;color:var(--muted);font-size:14px;text-align:center}
+@media (max-width:820px){.hero{grid-template-columns:1fr;padding-top:26px}.phone{max-width:260px}}
 </style>
 </head>
 <body>
+<header class="top"><div class="top-in">
+  <a class="brand" href="index.html"><span class="mark"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5.5v13l11-6.5z" style="fill:var(--surface)"/></svg></span><span>Viet<i>Lish</i></span></a>
+  <nav aria-label="Pages">
+    <a href="index.html" aria-current="page"><span data-l="en">Home</span><span data-l="vi">Trang chủ</span></a>
+    <a href="legal.html"><span data-l="en">Overview</span><span data-l="vi">Tổng quan</span></a>
+    <a href="privacy.html"><span data-l="en">Privacy</span><span data-l="vi">Quyền riêng tư</span></a>
+    <a href="terms.html"><span data-l="en">Terms</span><span data-l="vi">Điều khoản</span></a>
+    <a href="children.html"><span data-l="en">Children</span><span data-l="vi">Trẻ em</span></a>
+    <a href="delete-account.html"><span data-l="en">Delete account</span><span data-l="vi">Xóa tài khoản</span></a>
+    <a href="support.html"><span data-l="en">Support</span><span data-l="vi">Hỗ trợ</span></a>
+  </nav>
+  <div class="lang" role="group" aria-label="Language"><button id="b-en" type="button" data-set="en">EN</button><button id="b-vi" type="button" data-set="vi">VI</button></div>
+</div></header>
 <main>
-<h1>VietLish</h1>
-<p class="tag">Speak English or Vietnamese, one real-life lesson at a time.</p>
-<section lang="en">
-<h2>English</h2>
-<p>Short speaking lessons for everyday life: listen, repeat and practise out loud. Learn English if you speak Vietnamese, or Vietnamese if you speak English. Courses for adults, teens and kids. Coming soon to Android and iPhone.</p>
+<section class="hero">
+<div>
+<span class="kicker"><span data-l="en">Speak English or Vietnamese</span><span data-l="vi">Nói tiếng Anh hoặc tiếng Việt</span></span>
+<div data-l="en"><h1>Speak with <em>confidence.</em></h1><p class='lead'>Everyday conversations in Southern Vietnamese or English, twenty minutes at a time. Listen, repeat and answer out loud, one real-life lesson after another.</p></div>
+<div data-l="vi"><h1>Tự tin <em>khi nói.</em></h1><p class='lead'>Hội thoại đời thường bằng tiếng Việt giọng miền Nam hoặc tiếng Anh, mỗi lần hai mươi phút. Nghe, nhắc lại và trả lời thành tiếng, từng bài học thực tế một.</p></div>
+<div class="stores" aria-label="Stores"><span class="store"><small><span data-l="en">Coming soon on</span><span data-l="vi">Sắp có trên</span></small><b>Google Play</b></span><span class="store"><small><span data-l="en">Coming soon on the</span><span data-l="vi">Sắp có trên</span></small><b>App Store</b></span></div>
+<p class="note"><span data-l="en">Lesson 1 is free. No card needed to try it.</span><span data-l="vi">Bài 1 miễn phí. Không cần thẻ để dùng thử.</span></p>
+</div>
+<div class="phone"><img src="assets/app/learn.jpg" alt="VietLish home screen with today's lesson" width="760" height="1688"></div>
 </section>
-<section lang="vi">
-<h2>Tiếng Việt</h2>
-<p>Những bài luyện nói ngắn cho cuộc sống hằng ngày: nghe, nhắc lại và nói thành tiếng. Học tiếng Anh nếu bạn nói tiếng Việt, hoặc học tiếng Việt nếu bạn nói tiếng Anh. Khóa học cho người lớn, tuổi teen và trẻ em. Sắp có trên Android và iPhone.</p>
+
+<section class="block" id="inside">
+<h2><span data-l="en">See inside the app</span><span data-l="vi">Xem bên trong ứng dụng</span></h2>
+<p class="sub"><span data-l="en">Real screens from the VietLish app.</span><span data-l="vi">Màn hình thật từ ứng dụng VietLish.</span></p>
+<div class="shots"><figure class="shot" style="margin:0 "><div class="phone small"><img src="assets/app/learn.jpg" alt="VietLish screen: Your lesson for today" loading="lazy" width="760" height="1688"></div><p><span data-l="en">Your lesson for today</span><span data-l="vi">Bài học hôm nay</span><small><span data-l="en">One big card. Tap play.</span><span data-l="vi">Một thẻ lớn. Chạm để phát.</span></small></p></figure><figure class="shot" style="margin:0 "><div class="phone small"><img src="assets/app/player.jpg" alt="VietLish screen: A guided 20-minute lesson" loading="lazy" width="760" height="1688"></div><p><span data-l="en">A guided 20-minute lesson</span><span data-l="vi">Bài học 20 phút có hướng dẫn</span><small><span data-l="en">Listen, build, recall, respond, converse.</span><span data-l="vi">Nghe, xây dựng, ôn, đáp lại, trò chuyện.</span></small></p></figure><figure class="shot" style="margin:0 "><div class="phone small"><img src="assets/app/practice.jpg" alt="VietLish screen: Practice what you learned" loading="lazy" width="760" height="1688"></div><p><span data-l="en">Practice what you learned</span><span data-l="vi">Luyện tập điều đã học</span><small><span data-l="en">Flash cards, quick match, speak easy and more.</span><span data-l="vi">Thẻ từ, nối nhanh, nói dễ dàng và hơn thế nữa.</span></small></p></figure><figure class="shot" style="margin:0 "><div class="phone small"><img src="assets/app/paywall.jpg" alt="VietLish screen: Simple, fair pricing" loading="lazy" width="760" height="1688"></div><p><span data-l="en">Simple, fair pricing</span><span data-l="vi">Giá đơn giản, công bằng</span><small><span data-l="en">Pick monthly or yearly. Cancel any time.</span><span data-l="vi">Chọn theo tháng hoặc năm. Hủy bất cứ lúc nào.</span></small></p></figure></div>
 </section>
-<footer>
-<p><a href="privacy.html">Privacy</a><a href="terms.html">Terms</a><a href="children.html">Children</a><a href="delete-account.html">Delete account</a><a href="support.html">Support</a></p>
-<p>© 2026 rubezapps · VietLish · appmakernguyen@gmail.com</p>
-</footer>
+
+<section class="block" id="why">
+<h2><span data-l="en">Why people like it</span><span data-l="vi">Vì sao mọi người thích</span></h2>
+<div class="grid">
+<div class="tile"><h3><span data-l="en">You speak out loud</span><span data-l="vi">Bạn nói thành tiếng</span></h3><p><span data-l="en">Not just tapping. Every lesson makes you say the words and answer in the pauses.</span><span data-l="vi">Không chỉ chạm màn hình. Mỗi bài học bắt bạn nói và đáp lại trong các khoảng nghỉ.</span></p></div>
+<div class="tile"><h3><span data-l="en">Real-life conversations</span><span data-l="vi">Hội thoại đời thường</span></h3><p><span data-l="en">Meeting a neighbour, shopping, work, friends. Things you will really say.</span><span data-l="vi">Gặp hàng xóm, mua sắm, công việc, bạn bè. Những điều bạn thật sự sẽ nói.</span></p></div>
+<div class="tile"><h3><span data-l="en">Works with the screen locked</span><span data-l="vi">Chạy khi khóa màn hình</span></h3><p><span data-l="en">Learn on a walk or in the car, with controls on the lock screen.</span><span data-l="vi">Học khi đi bộ hoặc trên xe, có nút điều khiển ở màn hình khóa.</span></p></div>
+<div class="tile"><h3><span data-l="en">One plan for the family</span><span data-l="vi">Một gói cho cả nhà</span></h3><p><span data-l="en">Adults, teens and kids each keep their own profile and progress.</span><span data-l="vi">Người lớn, thiếu niên và trẻ em mỗi người có hồ sơ và tiến độ riêng.</span></p></div>
+</div>
+</section>
+
+<section class="block" id="how">
+<h2><span data-l="en">How a lesson works</span><span data-l="vi">Một bài học diễn ra thế nào</span></h2>
+<ol class="steps">
+<li><span data-l="en"><b>Hear</b> a short, complete conversation.</span><span data-l="vi"><b>Nghe</b> một đoạn hội thoại ngắn, trọn vẹn.</span></li>
+<li><span data-l="en"><b>Learn</b> the key expressions: meaning, words, syllables, and rebuilding each phrase from the end.</span><span data-l="vi"><b>Học</b> các cách nói chính: nghĩa, từ, âm tiết, và ghép lại từng câu từ cuối về đầu.</span></li>
+<li><span data-l="en"><b>Repeat</b> aloud, then <b>recall</b> earlier expressions.</span><span data-l="vi"><b>Nhắc lại</b> thành tiếng, rồi <b>ôn</b> những cách nói đã học.</span></li>
+<li><span data-l="en"><b>Respond</b> in the pauses, then play <b>both roles</b> in the full conversation.</span><span data-l="vi"><b>Trả lời</b> trong các khoảng nghỉ, rồi đóng <b>cả hai vai</b> trong hội thoại đầy đủ.</span></li>
+</ol>
+</section>
+
+<section class="block" id="courses">
+<h2><span data-l="en">Eight topics, 32 lessons</span><span data-l="vi">Tám chủ đề, 32 bài học</span></h2>
+<p class="sub"><span data-l="en">Learn English if you speak Vietnamese, or Vietnamese if you speak English. Adults get 20-minute lessons, teens 15, kids 10.</span><span data-l="vi">Học tiếng Anh nếu bạn nói tiếng Việt, hoặc học tiếng Việt nếu bạn nói tiếng Anh. Người lớn học 20 phút, thiếu niên 15 phút, trẻ em 10 phút.</span></p>
+<div class="topics"><figure class="topic" style="margin:0"><img src="assets/topics/topic-1.jpg" alt="" loading="lazy" width="640" height="426"><p><small><span data-l="en">Topic</span><span data-l="vi">Chủ đề</span> 1</small><span data-l="en">Talking About Yourself</span><span data-l="vi">Giới thiệu về bản thân</span></p></figure><figure class="topic" style="margin:0"><img src="assets/topics/topic-2.jpg" alt="" loading="lazy" width="640" height="426"><p><small><span data-l="en">Topic</span><span data-l="vi">Chủ đề</span> 2</small><span data-l="en">Everyday Life</span><span data-l="vi">Cuộc sống hằng ngày</span></p></figure><figure class="topic" style="margin:0"><img src="assets/topics/topic-3.jpg" alt="" loading="lazy" width="640" height="426"><p><small><span data-l="en">Topic</span><span data-l="vi">Chủ đề</span> 3</small><span data-l="en">Keeping a Conversation Going</span><span data-l="vi">Giữ cuộc trò chuyện tiếp diễn</span></p></figure><figure class="topic" style="margin:0"><img src="assets/topics/topic-4.jpg" alt="" loading="lazy" width="640" height="426"><p><small><span data-l="en">Topic</span><span data-l="vi">Chủ đề</span> 4</small><span data-l="en">Talking About Experiences</span><span data-l="vi">Kể về trải nghiệm</span></p></figure><figure class="topic" style="margin:0"><img src="assets/topics/topic-5.jpg" alt="" loading="lazy" width="640" height="426"><p><small><span data-l="en">Topic</span><span data-l="vi">Chủ đề</span> 5</small><span data-l="en">Home and Responsibilities</span><span data-l="vi">Nhà cửa và trách nhiệm</span></p></figure><figure class="topic" style="margin:0"><img src="assets/topics/topic-6.jpg" alt="" loading="lazy" width="640" height="426"><p><small><span data-l="en">Topic</span><span data-l="vi">Chủ đề</span> 6</small><span data-l="en">Friends and Feelings</span><span data-l="vi">Bạn bè và cảm xúc</span></p></figure><figure class="topic" style="margin:0"><img src="assets/topics/topic-7.jpg" alt="" loading="lazy" width="640" height="426"><p><small><span data-l="en">Topic</span><span data-l="vi">Chủ đề</span> 7</small><span data-l="en">Work and Community</span><span data-l="vi">Công việc và cộng đồng</span></p></figure><figure class="topic" style="margin:0"><img src="assets/topics/topic-8.jpg" alt="" loading="lazy" width="640" height="426"><p><small><span data-l="en">Topic</span><span data-l="vi">Chủ đề</span> 8</small><span data-l="en">Expressing Yourself More Fully</span><span data-l="vi">Diễn đạt đầy đủ hơn</span></p></figure></div>
+</section>
+
+<section class="block" id="price">
+<h2><span data-l="en">Simple pricing</span><span data-l="vi">Giá đơn giản</span></h2>
+<div class="grid">
+<div class="tile"><h3><span data-l="en">Try it</span><span data-l="vi">Dùng thử</span></h3><div class="big"><span data-l="en">Free</span><span data-l="vi">Miễn phí</span></div><p><span data-l="en">Lesson 1 of every mode and level.</span><span data-l="vi">Bài 1 của mỗi chế độ và cấp độ.</span></p></div>
+<div class="tile"><h3><span data-l="en">Monthly</span><span data-l="vi">Theo tháng</span></h3><div class="big">100.000&#8363;</div><p><span data-l="en">per month. Every lesson in Adults, Teens and Kids.</span><span data-l="vi">mỗi tháng. Mọi bài học Người lớn, Thiếu niên và Trẻ em.</span></p></div>
+<div class="tile best"><span class="tag"><span data-l="en">Best value</span><span data-l="vi">Tiết kiệm nhất</span></span><h3><span data-l="en">Yearly</span><span data-l="vi">Theo năm</span></h3><div class="big">1.000.000&#8363;</div><p><span data-l="en">per year. About 17% less than paying monthly.</span><span data-l="vi">mỗi năm. Rẻ hơn khoảng 17% so với trả theo tháng.</span></p></div>
+</div>
+<p class="note"><span data-l="en">Subscriptions renew until you cancel in Google Play or your Apple account settings. The price and billing period are shown in the store before you buy. On Android, free users can also watch one short ad a day to unlock one extra lesson for 24 hours.</span><span data-l="vi">Gói tự động gia hạn cho đến khi bạn hủy trong Google Play hoặc cài đặt tài khoản Apple. Giá và chu kỳ thanh toán hiển thị trong cửa hàng trước khi bạn mua. Trên Android, người dùng miễn phí cũng có thể xem một quảng cáo ngắn mỗi ngày để mở một bài học thêm trong 24 giờ.</span></p>
+</section>
+
+<section class="block" id="faq">
+<h2><span data-l="en">Questions</span><span data-l="vi">Câu hỏi thường gặp</span></h2>
+<details><summary><span data-l="en">Is VietLish free?</span><span data-l="vi">VietLish có miễn phí không?</span></summary><p><span data-l="en">Lesson 1 of every mode and level is free. A VietLish subscription unlocks every lesson in Adults, Teens and Kids.</span><span data-l="vi">Bài 1 của mọi chế độ và cấp độ là miễn phí. Gói VietLish mở khóa mọi bài học Người lớn, Thiếu niên và Trẻ em.</span></p></details><details><summary><span data-l="en">How much does it cost?</span><span data-l="vi">Giá bao nhiêu?</span></summary><p><span data-l="en">100,000&#8363; a month or 1,000,000&#8363; a year (about 17% less). The store shows the exact price and billing period before you buy.</span><span data-l="vi">100.000&#8363; mỗi tháng hoặc 1.000.000&#8363; mỗi năm (rẻ hơn khoảng 17%). Cửa hàng hiển thị giá và chu kỳ thanh toán chính xác trước khi bạn mua.</span></p></details><details><summary><span data-l="en">Which phones does it work on?</span><span data-l="vi">Dùng được trên điện thoại nào?</span></summary><p><span data-l="en">Android and iPhone. The apps are coming soon.</span><span data-l="vi">Android và iPhone. Ứng dụng sắp ra mắt.</span></p></details><details><summary><span data-l="en">Is it Southern or Northern Vietnamese?</span><span data-l="vi">Là tiếng Việt miền Nam hay miền Bắc?</span></summary><p><span data-l="en">The course is written in Southern Vietnamese, and you can also choose Northern Vietnamese wording.</span><span data-l="vi">Khóa học viết bằng tiếng Việt miền Nam, và bạn cũng có thể chọn cách nói miền Bắc.</span></p></details><details><summary><span data-l="en">Can my children use it?</span><span data-l="vi">Con tôi có dùng được không?</span></summary><p><span data-l="en">Yes. Kids and Teens modes are made for use on a parent's device with a parent's permission. See our <a href='children.html'>Children page</a>.</span><span data-l="vi">Được. Chế độ Trẻ em và Thiếu niên dành cho việc dùng trên thiết bị của phụ huynh, với sự cho phép của phụ huynh. Xem <a href='children.html'>trang Trẻ em</a>.</span></p></details><details><summary><span data-l="en">How do I cancel or delete my account?</span><span data-l="vi">Làm sao hủy gói hoặc xóa tài khoản?</span></summary><p><span data-l="en">Cancel in Google Play or your Apple account settings. To delete your account, see <a href='delete-account.html'>Delete account</a>. Deleting your account does not cancel a subscription.</span><span data-l="vi">Hủy trong Google Play hoặc cài đặt tài khoản Apple. Để xóa tài khoản, xem <a href='delete-account.html'>Xóa tài khoản</a>. Xóa tài khoản không hủy gói đăng ký.</span></p></details>
+</section>
+
+<section class="band">
+<h2><span data-l="en">Coming soon to your phone</span><span data-l="vi">Sắp có trên điện thoại của bạn</span></h2>
+<p><span data-l="en">VietLish is almost ready. Questions in the meantime? Write to us and we will answer.</span><span data-l="vi">VietLish sắp hoàn thiện. Có câu hỏi trong lúc chờ? Hãy viết cho chúng tôi, chúng tôi sẽ trả lời.</span></p>
+<div class="stores" aria-label="Stores"><span class="store"><small><span data-l="en">Coming soon on</span><span data-l="vi">Sắp có trên</span></small><b>Google Play</b></span><span class="store"><small><span data-l="en">Coming soon on the</span><span data-l="vi">Sắp có trên</span></small><b>App Store</b></span></div>
+<p style="margin:16px 0 0"><b>appmakernguyen@gmail.com</b></p>
+</section>
+
+<p class="foot">© 2026 rubezapps · VietLish · <a href="privacy.html"><span data-l="en">Privacy</span><span data-l="vi">Quyền riêng tư</span></a> · <a href="terms.html"><span data-l="en">Terms</span><span data-l="vi">Điều khoản</span></a> · <a href="children.html"><span data-l="en">Children</span><span data-l="vi">Trẻ em</span></a> · <a href="delete-account.html"><span data-l="en">Delete account</span><span data-l="vi">Xóa tài khoản</span></a> · <a href="support.html"><span data-l="en">Support</span><span data-l="vi">Hỗ trợ</span></a></p>
 </main>
+<script>
+(function(){
+  function setLang(l){document.documentElement.lang=l;document.getElementById('b-en').setAttribute('aria-pressed',l==='en');document.getElementById('b-vi').setAttribute('aria-pressed',l==='vi');try{localStorage.setItem('vl-legal-lang',l);}catch(e){}}
+  var q=(location.search.match(/[?&]lang=(en|vi)/)||[])[1],saved=null;try{saved=localStorage.getItem('vl-legal-lang');}catch(e){}
+  setLang(q||saved||((navigator.language||'').toLowerCase().indexOf('vi')===0?'vi':'en'));
+  document.querySelectorAll('.lang button').forEach(function(b){b.addEventListener('click',function(){setLang(b.dataset.set);});});
+})();
+</script>
 </body>
 </html>
