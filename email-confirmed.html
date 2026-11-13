@@ -1,0 +1,10 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="referrer" content="no-referrer"><meta name="robots" content="noindex"><meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'unsafe-inline'; style-src 'unsafe-inline'; base-uri 'none'; form-action 'none'"><title>Email confirmed · VietLish</title><style>body{font:16px system-ui;background:#edf6ef;color:#183e32;margin:0;padding:30px 20px}main{max-width:420px;margin:8vh auto;background:#fff;border:1px solid #d7e7dc;border-radius:24px;padding:28px}h1{font-size:26px;margin:0 0 6px}h2{font-size:20px;margin:28px 0 6px}p{line-height:1.6;color:#516b60;margin:6px 0}</style></head><body><main>
+<div id="ok"><h1>Your email is confirmed</h1><p>Go back to the VietLish app. You will be signed in automatically.</p><p>If the app was closed, open it and sign in with your email and password.</p>
+<h2 lang="vi">Email của bạn đã được xác nhận</h2><p lang="vi">Hãy quay lại ứng dụng VietLish. Bạn sẽ được đăng nhập tự động.</p><p lang="vi">Nếu ứng dụng đã đóng, hãy mở lại và đăng nhập bằng email và mật khẩu của bạn.</p></div>
+<div id="bad" hidden><h1>This link has expired</h1><p>Open VietLish and sign up or sign in again to get a new confirmation email.</p><h2 lang="vi">Liên kết đã hết hạn</h2><p lang="vi">Hãy mở VietLish và đăng ký hoặc đăng nhập lại để nhận email xác nhận mới.</p></div>
+</main><script>
+'use strict';
+// Supabase sends the person here after the confirmation link. The page never keeps or sends the sign-in tokens.
+const q=new URLSearchParams(location.hash.slice(1)+'&'+location.search.slice(1));history.replaceState(null,'',location.pathname);
+if(q.get('error')||q.get('error_code')){document.querySelector('#ok').hidden=true;document.querySelector('#bad').hidden=false;}
+</script></body></html>
